@@ -10,6 +10,6 @@ import { getMessage } from './reducers';
 })
 
 export class AppComponent {
-  fizzbuzzes = this.store.pipe(select(getMessage));
+  fizzbuzzes$ = this.store.pipe(select(getMessage));
   constructor(private store: Store<any>) { }
 }

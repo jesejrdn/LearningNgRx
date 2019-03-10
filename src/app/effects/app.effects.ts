@@ -8,5 +8,5 @@ import { Next } from '../actions/fizzbuzz.actions';
 @Injectable()
 export class AppEffects {
   @Effect()
-  fizzbuzzes = interval(1000).pipe(mapTo(new Next()));
+  fizzbuzzes$ = interval(1000).pipe(mapTo(new Next()));
 }

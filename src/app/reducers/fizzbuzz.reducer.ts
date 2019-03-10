@@ -1,18 +1,13 @@
-import { Action } from '@ngrx/store';
 import { FizzBuzzActions, FizzBuzzActionTypes } from '../actions/fizzbuzz.actions';
+import { FizzbuzzState } from '../feature-states/fizzbuzz-state';
 
-
-export interface State {
-  counter: number;
-}
-
-export const initialState: State = {
-  counter: 1,
+export const initialState: FizzbuzzState = {
+  counter: 1
 };
 
-export const getCounter = (state: State) => state.counter;
+export const getCounter = (state: FizzbuzzState) => state.counter;
 
-export function reducer(state = initialState, action: FizzBuzzActions): State {
+export function reducer(state = initialState, action: FizzBuzzActions): FizzbuzzState {
   switch (action.type) {
 
     case FizzBuzzActionTypes.Next:

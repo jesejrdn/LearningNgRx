@@ -6,19 +6,20 @@ import {
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
 import * as fromFizzbuzz from './fizzbuzz.reducer';
+import { FizzbuzzState } from '../feature-states/fizzbuzz-state';
 
-export interface State {
-  fizzbuzz: fromFizzbuzz.State;
+export interface AppState {
+  fizzbuzz: FizzbuzzState;
 }
 
-export const reducers: ActionReducerMap<State> = {
+export const reducers: ActionReducerMap<AppState> = {
   fizzbuzz: fromFizzbuzz.reducer
 };
 
-export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
+export const metaReducers: MetaReducer<AppState>[] = !environment.production ? [] : [];
 
 // Select the fizzbuzz state from app state
-export const getFizzBuzzState = createFeatureSelector<fromFizzbuzz.State>('fizzbuzz');
+const getFizzBuzzState = createFeatureSelector<FizzbuzzState>('fizzbuzz');
 
 // Wrap the getter inside a selector
 export const getCounter = createSelector(
